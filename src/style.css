@@ -1,16 +1,22 @@
+
+
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .main-container {
-    margin: 12vh 10vw
+    /* margin: 12vh 10vw; */
+    
+    
 }
 
 
 .kanban {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: center;
     gap: 10px
 }
 
@@ -21,7 +27,9 @@ body {
     background-color: rgba(84, 72, 49, 0.04);
     margin-bottom: 20px;
     border-radius: 10px;
-    padding: 0 10px
+    padding: 0 10px;
+    max-width: 30rem;
+    width: 20rem;
 }
 
 .add-item,
@@ -33,6 +41,7 @@ button {
     font-size: 18px;
     color: #979797;
     background-color: transparent;
+
 }
 
 .board-header button:hover {
@@ -99,10 +108,11 @@ button {
 
 .board ul {
     background-color: rgba(84, 72, 49, 0.04);
-    max-width: 400px;
-    width: 400px;
+    max-width: 30rem;
+    width: 20rem;
     padding: 10px;
     border-radius: 10px;
+    list-style-type: none;
 }
 
 .board #in-progress-list {
@@ -136,4 +146,14 @@ button {
 .board li:hover {
     background-color: #e7e7e759;
     cursor: grab;
+}
+
+@media screen and (max-width: 1100px) {
+    .kanban {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        flex-wrap: wrap;
+        
+    }
 }
