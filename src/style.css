@@ -1,0 +1,47 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.main-container {
+    margin: 12vh 10vw
+}
+
+
+.kanban {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 10px
+
+}
+
+.kb {
+    background-color: #d2d2d2;
+    max-width: 400px;
+    width: 400px;
+    padding: 10px;
+    border-radius: 10px
+}
+
+.kb .list-title {
+    background-color: #979797;
+    font-weight: 600;
+    padding: 4px 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 60px;
+    
+}
+
+.kb li {
+    padding: 10px;
+    margin: 4px;
+    border-radius: 8px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #979797
+
+}
+
+.kb li:hover {
+    background-color: #e7e7e7;
+}
