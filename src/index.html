@@ -14,31 +14,50 @@
     <main class="main-container">
         <container class="kanban">
 
-            <section class="kb not-started">
-                <span class="list-title">Não iniciado</span>
-                <ul>
+            <section class="board not-started">
+                <div class="board-header">
+                    <div id="not-started-title" class="board-title">
+                        <div id="not-started-dot" class="dot"></div>
+                        Não iniciado
+                    </div>
+                    <button class="add-item">+</button>
+                </div>
+                <ul id="not-started-list" class="task-list">
                     <li id="1" draggable="true">item 1</li>
                     <li id="2" draggable="true">item 2</li>
                     <li id="3" draggable="true">item 3</li>
                     <li id="4" draggable="true">item 4</li>
                 </ul>
             </section>
-            <section class="kb in-progress">
-                <span class="list-title">Em andamento</span>
-                <ul>
+
+            <section class="board in-progress">
+                <div class="board-header">
+                    <div id="in-progress-title" class="board-title">
+                        <div id="in-progress-dot" class="dot"></div>
+                        Em andamento
+                    </div>
+                    <button class="add-item">+</button>
+                </div>
+                <ul id="in-progress-list" class="task-list">
                     <li id="5" draggable="true">item 5</li>
                     <li id="6" draggable="true">item 6</li>
                     <li id="7" draggable="true">item 7</li>
                     <li id="8" draggable="true">item 8</li>
                 </ul>
             </section>
-            <section class="kb done">
-                <span class="list-title">Concluído</span>
-                <ul>
-                    <li id="8"draggable="true">item 1</li>
-                    <li id="9"draggable="true">item 2</li>
-                    <li id="10"draggable="true">item 4</li>
-                    <li id="11"draggable="true">item 3</li>
+            <section class="board done">
+                <div class="board-header">
+                    <div id="done-title" class="board-title">
+                        <div id="in-progress-dot" class="dot"></div>
+                        Concluído
+                    </div>
+                    <button class="add-item">+</button>
+                </div>
+                <ul id="done-list" class="task-list">
+                    <li id="8" draggable="true">item 1</li>
+                    <li id="9" draggable="true">item 2</li>
+                    <li id="10" draggable="true">item 4</li>
+                    <li id="11" draggable="true">item 3</li>
                 </ul>
             </section>
         </container>
