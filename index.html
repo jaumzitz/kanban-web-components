@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!--    <link rel="stylesheet" href="./src/reset.css">-->
     <link rel="stylesheet" href="./src/style.css">
+    <script src="./src/js/webcomponents.js" defer></script>
     <script src="./src/js/index.js" defer></script>
     <title>Jota's Kanban</title>
 </head>
@@ -13,22 +14,25 @@
 <body>
     <main class="main-container">
         <container class="kanban">
+                <task-list></task-list>
 
-            <section class="board not-started">
-                <div class="board-header">
-                    <div id="not-started-title" class="board-title">
-                        <div id="not-started-dot" class="dot"></div>
-                        Não iniciado
+                <section class="board not-started">
+                    <div class="board-header">
+                        <div id="not-started-title" class="board-title">
+                            <div id="not-started-dot" class="dot"></div>
+                            Não iniciado
+                        </div>
+                        <button class="add-item">+</button>
                     </div>
-                    <button class="add-item">+</button>
-                </div>
-                <ul id="not-started-list" class="task-list">
-                    <li id="1" draggable="true">item 1</li>
-                    <li id="2" draggable="true">item 2</li>
-                    <li id="3" draggable="true">item 3</li>
-                    <li id="4" draggable="true">item 4</li>
-                </ul>
-            </section>
+                    <ul id="not-started-list" class="task-list">
+                        <task-item>a</task-item>
+                        
+                        <li id="2" draggable="true">item 2</li>
+                        <li id="3" draggable="true">item 3</li>
+                        <li id="4" draggable="true">item 4</li>
+                    </ul>
+                </section>
+            
 
             <section class="board in-progress">
                 <div class="board-header">
