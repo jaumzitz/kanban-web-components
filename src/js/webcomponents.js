@@ -1,11 +1,11 @@
-class Task extends HTMLElement {
+class TaskItem extends HTMLElement {
     constructor() {
         super()
         this.attachShadow({ mode: "open" })
     }
 
     connectedCallback() {
-        
+
         const taskTemplate = document.createElement('template')
 
         taskTemplate.innerHTML = `
@@ -29,14 +29,22 @@ class Task extends HTMLElement {
         </style>
         `
 
+
         taskTemplate.innerHTML += `
-        
-            <li id="1" draggable="true">TEMPLATE</li>
+            <li draggable="true"><slot></slot></li>
         `
 
-        this.shadowRoot.appendChild(taskTemplate.content.cloneNode(true))
+        this.shadowRoot.appendChild(taskTemplate.content)
 
+        const listItem = this.shadowRoot.querySelector("li");
+        listItem.addEventListener("dragstart", this.dragstartHandler);
 
+    }
+
+    dragstartHandler(event) {
+        event.dataTransfer.dropEffect = "move";
+        console.log(event)
+        event.dataTransfer.setData("id", event.target.closest("task-item").id);
     }
 }
 
@@ -44,9 +52,10 @@ class Task extends HTMLElement {
 class TaskList extends HTMLElement {
     constructor() {
         super()
-        this.attachShadow({mode: "open"})
+        this.attachShadow({ mode: "open" })
     }
 
+    
     connectedCallback() {
         const listTemplate = document.createElement('template')
 
@@ -64,17 +73,34 @@ class TaskList extends HTMLElement {
         `
 
         listTemplate.innerHTML += `
-        <ul>
-            <task-item>aaa</task-item>
-            <task-item>aaa</task-item>
+        <ul id="not-started-list">
+            <slot></slot>            
         </ul>    
         `
-
+        
+        
         this.shadowRoot.appendChild(listTemplate.content.cloneNode(true))
+
     }
+
+    addTask(value, id) {
+        //const board = document.getElementById('not-started-list')
+
+        const newTask = document.createElement('task-item')
+
+        newTask.setAttribute("id", id)
+        newTask.innerHTML = value
+
+        this.shadowRoot.querySelector('#not-started-list').appendChild(newTask)
+
+
+
+    }
+
+
 }
 
 
-customElements.define('task-item', Task)
+customElements.define('task-item', TaskItem)
 customElements.define('task-list', TaskList)
 

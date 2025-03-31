@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="./src/style.css">
     <script src="./src/js/webcomponents.js" defer></script>
     <script src="./src/js/index.js" defer></script>
+    <script src="./src/js/addTask.js" defer></script>
     <title>Jota's Kanban</title>
 </head>
 
 <body>
     <main class="main-container">
         <container class="kanban">
-                <task-list></task-list>
+                
 
                 <section class="board not-started">
                     <div class="board-header">
@@ -24,13 +25,14 @@
                         </div>
                         <button class="add-item">+</button>
                     </div>
-                    <ul id="not-started-list" class="task-list">
-                        <task-item>a</task-item>
+                    <task-list id="not-started-list"></task-list>
+                    <!-- <ul id="not-started-list" class="task-list">
+                        
                         
                         <li id="2" draggable="true">item 2</li>
                         <li id="3" draggable="true">item 3</li>
                         <li id="4" draggable="true">item 4</li>
-                    </ul>
+                    </ul> -->
                 </section>
             
 
@@ -42,12 +44,13 @@
                     </div>
                     <button class="add-item">+</button>
                 </div>
-                <ul id="in-progress-list" class="task-list">
+                <task-list id="in-progress-list"></task-list>
+                <!-- <ul id="in-progress-list" class="task-list">
                     <li id="5" draggable="true">item 5</li>
                     <li id="6" draggable="true">item 6</li>
                     <li id="7" draggable="true">item 7</li>
                     <li id="8" draggable="true">item 8</li>
-                </ul>
+                </ul> -->
             </section>
             <section class="board done">
                 <div class="board-header">
