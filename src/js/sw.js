@@ -13,7 +13,7 @@ const registerServiceWorker = async () => {
             }
 
         } catch (error) {
-            console.error(`Registro do service worker falhou: ${error}`)
+            console.error(`Registro do Service Worker falhou: ${error}`)
         }
     }
 }
