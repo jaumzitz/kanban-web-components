@@ -8,15 +8,13 @@ class TaskItem extends HTMLElement {
 
     connectedCallback() {
 
+        /*Não executa o restante caso o shadowRoot já tenha conteúdo (corrige o problema de dupliciade ao fazer drag and drop)*/
         if (this.shadowRoot.children.length > 0) {
             return
         }
         
         const taskTemplate = document.createElement('template')
         
-        console.log(this.shadowRoot)
-        
-
 
         taskTemplate.innerHTML = `
             <style>
@@ -58,7 +56,6 @@ class TaskItem extends HTMLElement {
     
     dragstartHandler(event) {
         event.dataTransfer.dropEffect = "move";
-        console.log(event)
         event.dataTransfer.setData("id", event.target.closest("task-item").id);
     }
 }

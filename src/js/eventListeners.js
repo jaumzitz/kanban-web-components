@@ -1,5 +1,5 @@
 
-
+//Adiciona os eventos para as tasks iniciais
 window.addEventListener("DOMContentLoaded", () => {
     const tasks = document.querySelectorAll("task-item")
     tasks.forEach((task) => {
@@ -14,11 +14,13 @@ window.addEventListener("DOMContentLoaded", () => {
     })
 }) 
 
+
+
 function dragstartHandler(event) {
         //add o id do elemento alvo ao objeto dataTransfet
         event.dataTransfer.dropEffect = "move"
         event.dataTransfer.setData("id", event.target.id)
-        console.log(event)
+        
 }
 
 function dragoverHandler(event) {
@@ -28,11 +30,10 @@ function dragoverHandler(event) {
 
 function dropHandler(event) {
     event.preventDefault()
-    console.log('Drop event')
-    console.log(event)
+    
 
     const data = event.dataTransfer.getData("id")
-    console.log(event.target.tagName)
+    
 
     
     // Verifica se o elemento alvo é um task-item ou task-list
