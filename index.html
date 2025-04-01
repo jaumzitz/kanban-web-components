@@ -4,56 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--    <link rel="stylesheet" href="./src/reset.css">-->
+    <!--    <link rel="stylesheet" href="./src/reset.css">-->
     <link rel="stylesheet" href="./src/style.css">
-    
+
     <script src="./src/js/index.js" defer></script>
     <script src="./src/js/eventListeners.js" defer></script>
     <script src="./src/js/taskHandler.js" defer></script>
     <script src="./src/js/components/TaskItem.js" defer></script>
     <script src="./src/js/components/TaskList.js" defer></script>
     <script src="./src/js/components/BoardHeader.js" defer></script>
-    
-    
+
+
     <title>Jota's Kanban</title>
 </head>
 
 <body>
-    <main class="main-container">
-        <container class="kanban">
-                
+    <main>
 
-                <section class="board not-started">
-                  
 
-                    <board-header id="not-started" title="Não iniciado"></board-header>
+        <section class="board not-started">
+            <board-header id="not-started" title="Não iniciado"></board-header>
+            <task-list id="not-started-list">
+                <task-item id="task-1" draggable="true">Jogar no tigrinho</task-item>
+            </task-list>
+        </section>
 
-                    <task-list id="not-started-list">
-                        <task-item id="task-1" draggable="true">Jogar no tigrinho</task-item>
-                        
-                    </task-list>
+        <section class="board in-progress">
+            <board-header id="in-progress" title="Em progresso"></board-header>
+            <task-list id="in-progress-list">
+                <task-item id="task-2" draggable="true">Terminar a graduação</task-item>
+            </task-list>
+        </section>
 
- 
-                </section>
-            
+        <section class="board done">
+            <board-header id="done" title="Concluído"></board-header>
+            <task-list id="done-list">
+                <task-item id="task-3" draggable="true">Estudar programação</task-item>
+            </task-list>
+        </section>
 
-            <section class="board in-progress">
-                <board-header id="in-progress" title="Em progresso"></board-header>
-
-                    <task-list id="in-progress-list">
-                        <task-item id="task-2" draggable="true">Terminar a graduação</task-item>
-                        
-                        
-                    </task-list>
-            </section>
-            <section class="board done">
-                <board-header id="done" title="Concluído"></board-header>
-                <task-list id="done-list">
-                    <task-item id="task-3" draggable="true">Estudar programação</task-item>
-
-                </task-list>
-            </section>
-        </container>
     </main>
 </body>
 

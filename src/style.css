@@ -4,14 +4,8 @@ body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.main-container {
+main {
     /* margin: 12vh 10vw; */
-    
-    
-}
-
-
-.kanban {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -20,125 +14,8 @@ body {
     gap: 10px
 }
 
-
-
-.add-item,
-button {
-    border-radius: 6px;
-    padding: 4px 8px;
-    border: none;
-    font-weight: bolder;
-    font-size: 18px;
-    color: #979797;
-    background-color: transparent;
-
-}
-
-.board-header button:hover {
-    background-color: #d9d9d95d;
-    cursor: pointer;
-    transition: 200ms;
-}
-
-.board-title {
-    display: flex;
-    align-items: center;
-    background-color: #d9d9d9;
-    font-weight: 600;
-    padding: 4px 8px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-radius: 60px;
-
-}
-
-#not-started-title {
-    color: #5c5b5b
-}
-
-
-
-#in-progress-title {
-    background-color: rgba(93, 165, 206, 0.27);
-    color: rgb(24, 51, 71);
-    /*rgba(91, 166, 209, 0.07) azul fundo*/
-
-}
-
-
-
-.in-progress .board-header {
-    background-color: rgba(91, 166, 209, 0.07)
-}
-
-.dot {
-    margin-right: 5px;
-    border-radius: 99px;
-    height: 8px;
-    width: 8px;
-    display: inline-flex;
-    flex-shrink: 0;
-}
-
-#not-started-dot {
-    background-color: #5c5b5b
-}
-
-#in-progress-dot {
-    background-color: rgb(24, 51, 71)
-}
-
-#done-dot {
-    background-color: #1c3829;
-}
-
-#done-title {
-    color: rgb(28, 56, 41);
-    background-color: rgba(123, 183, 129, 0.27);
-}
-
-.done .board-header {
-    background: rgba(123, 183, 129, 0.07);
-
-}
-
-
-.board ul {
-    background-color: rgba(84, 72, 49, 0.04);
-    max-width: 30rem;
-    width: 20rem;
-    padding: 10px;
-    border-radius: 10px;
-    list-style-type: none;
-}
-
-.board #in-progress-list {
-    background-color: rgba(91, 166, 209, 0.07)
-}
-
-.board #done-list {
-    background-color: rgba(123, 183, 129, 0.07);
-}
-
-
-
-.board li {
-    padding: 10px;
-    margin: 4px 0;
-    border-radius: 8px;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid #e5e9ea;
-    box-shadow: 0px 5px 8px -3px rgba(0, 0, 0, 0.041);
-
-}
-
-.board li:hover {
-    background-color: #e7e7e759;
-    cursor: grab;
-}
-
 @media screen and (max-width: 1100px) {
-    .kanban {
+    main {
         display: flex;
         flex-direction: column;
         align-content: center;
