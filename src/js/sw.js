@@ -20,9 +20,9 @@ const registerServiceWorker = async () => {
 
 registerServiceWorker();
 
-/* 
 
-const addAoCache = async (recursos) => {
+
+const addToCache = async (recursos) => {
     const cache = await caches.open("v1")
     await cache.addAll(recursos)
 }
@@ -30,13 +30,20 @@ const addAoCache = async (recursos) => {
 
 self.addEventListener("install", (evento) => {
     evento.waitUntil(
-        addAoCache([
+        addToCache([
             "/",
             "/index.html",
-            "/icon.png",
             "/manifest.json",
-            
-            "contatos.json"
+            "/src/reset.css",
+            "/src/style.css",
+            "/src/assets/favicon.png",
+            "/src/js/eventListeners.js",
+            "/src/js/index.js",
+            "/src/js/sw.js",
+            "/src/js/taskHandler.js",
+            "/src/js/components/BoardHeader.js",
+            "/src/js/components/TaskItem.js",
+            "/src/js/components/TaskList.js"
         ])
     )
 })
@@ -56,4 +63,4 @@ self.addEventListener("fetch", (e) => {
         return response;
       })(),
     );
-  }); */
+  });
