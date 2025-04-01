@@ -20,17 +20,7 @@ body {
     gap: 10px
 }
 
-.board-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(84, 72, 49, 0.04);
-    margin-bottom: 20px;
-    border-radius: 10px;
-    padding: 0 10px;
-    max-width: 30rem;
-    width: 20rem;
-}
+
 
 .add-item,
 button {
@@ -53,6 +43,13 @@ button {
 .board-title {
     display: flex;
     align-items: center;
+    background-color: #d9d9d9;
+    font-weight: 600;
+    padding: 4px 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 60px;
+
 }
 
 #not-started-title {
@@ -123,15 +120,7 @@ button {
     background-color: rgba(123, 183, 129, 0.07);
 }
 
-.board .board-title {
-    background-color: #d9d9d9;
-    font-weight: 600;
-    padding: 4px 8px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-radius: 60px;
 
-}
 
 .board li {
     padding: 10px;

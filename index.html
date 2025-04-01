@@ -6,9 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!--    <link rel="stylesheet" href="./src/reset.css">-->
     <link rel="stylesheet" href="./src/style.css">
-    <script src="./src/js/webcomponents.js" defer></script>
+    
     <script src="./src/js/index.js" defer></script>
-    <script src="./src/js/addTask.js" defer></script>
+    <script src="./src/js/eventListeners.js" defer></script>
+    <script src="./src/js/taskHandler.js" defer></script>
+    <script src="./src/js/components/TaskItem.js" defer></script>
+    <script src="./src/js/components/TaskList.js" defer></script>
+    <script src="./src/js/components/BoardHeader.js" defer></script>
+    
+    
     <title>Jota's Kanban</title>
 </head>
 
@@ -18,54 +24,34 @@
                 
 
                 <section class="board not-started">
-                    <div class="board-header">
-                        <div id="not-started-title" class="board-title">
-                            <div id="not-started-dot" class="dot"></div>
-                            Não iniciado
-                        </div>
-                        <button class="add-item">+</button>
-                    </div>
-                    <task-list id="not-started-list"></task-list>
-                    <!-- <ul id="not-started-list" class="task-list">
+                  
+
+                    <board-header id="not-started" title="Não iniciado"></board-header>
+
+                    <task-list id="not-started-list">
+                        <task-item id="task-1" draggable="true">Jogar no tigrinho</task-item>
                         
-                        
-                        <li id="2" draggable="true">item 2</li>
-                        <li id="3" draggable="true">item 3</li>
-                        <li id="4" draggable="true">item 4</li>
-                    </ul> -->
+                    </task-list>
+
+ 
                 </section>
             
 
             <section class="board in-progress">
-                <div class="board-header">
-                    <div id="in-progress-title" class="board-title">
-                        <div id="in-progress-dot" class="dot"></div>
-                        Em andamento
-                    </div>
-                    <button class="add-item">+</button>
-                </div>
-                <task-list id="in-progress-list"></task-list>
-                <!-- <ul id="in-progress-list" class="task-list">
-                    <li id="5" draggable="true">item 5</li>
-                    <li id="6" draggable="true">item 6</li>
-                    <li id="7" draggable="true">item 7</li>
-                    <li id="8" draggable="true">item 8</li>
-                </ul> -->
+                <board-header id="in-progress" title="Em progresso"></board-header>
+
+                    <task-list id="in-progress-list">
+                        <task-item id="task-2" draggable="true">Terminar a graduação</task-item>
+                        
+                        
+                    </task-list>
             </section>
             <section class="board done">
-                <div class="board-header">
-                    <div id="done-title" class="board-title">
-                        <div id="in-progress-dot" class="dot"></div>
-                        Concluído
-                    </div>
-                    <button class="add-item">+</button>
-                </div>
-                <ul id="done-list" class="task-list">
-                    <li id="8" draggable="true">item 1</li>
-                    <li id="9" draggable="true">item 2</li>
-                    <li id="10" draggable="true">item 4</li>
-                    <li id="11" draggable="true">item 3</li>
-                </ul>
+                <board-header id="done" title="Concluído"></board-header>
+                <task-list id="done-list">
+                    <task-item id="task-3" draggable="true">Estudar programação</task-item>
+
+                </task-list>
             </section>
         </container>
     </main>

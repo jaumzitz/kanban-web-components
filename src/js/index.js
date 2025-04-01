@@ -1,4 +1,4 @@
-function dragstartHandler(event) {
+/* function dragstartHandler(event) {
     //add o id do elemento alvo ao objeto dataTransfet
     event.dataTransfer.dropEffect = "move"
     event.dataTransfer.setData("id", event.target.id)
@@ -16,6 +16,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const lists = document.querySelectorAll('ul')
 
+    
+
     lists.forEach((e) => {
         e.addEventListener("drop", dropHandler)
         e.addEventListener("dragover", dragoverHandler)
@@ -23,17 +25,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
 })
 
-function dragoverHandler(event) {
-    event.preventDefault()
-    event.dataTransfer.dropEffect = "move"
-}
 
-function dropHandler(event) {
-    event.preventDefault()
 
-    const data = event.dataTransfer.getData("id")
-    
-    
-    //event.target.parentNode.appendChild(document.getElementById(data))
-    event.target.parentNode.insertBefore(document.getElementById(data), event.target)
-}
+ */
