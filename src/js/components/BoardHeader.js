@@ -24,24 +24,7 @@ class BoardHeader extends HTMLElement {
                 width: 20rem;
             }
 
-            .add-item,
-            button {
-                border-radius: 6px;
-                padding: 4px 8px;
-                border: none;
-                font-weight: bolder;
-                font-size: 18px;
-                color: #979797;
-                background-color: transparent;
-
-            }
-
-            .board-header button:hover {
-                background-color: #d9d9d95d;
-                cursor: pointer;
-                transition: 200ms;
-            }
-
+            
             .board-title {
                 display: flex;
                 align-items: center;
@@ -58,19 +41,26 @@ class BoardHeader extends HTMLElement {
                 color: #5c5b5b
             }
 
-
-
             #in-progress-title {
                 background-color: rgba(93, 165, 206, 0.27);
                 color: rgb(24, 51, 71);
-                /*rgba(91, 166, 209, 0.07) azul fundo*/
+            
 
             }
 
-
+            #done-title {
+                color: rgb(28, 56, 41);
+                background-color: rgba(123, 183, 129, 0.27);
+            }
 
             .in-progress .board-header {
                 background-color: rgba(91, 166, 209, 0.07)
+            }
+
+            
+            .done .board-header {
+                background: rgba(123, 183, 129, 0.07);
+            
             }
 
             .dot {
@@ -93,19 +83,11 @@ class BoardHeader extends HTMLElement {
             #done-dot {
                 background-color: #1c3829;
             }
-
-            #done-title {
-                color: rgb(28, 56, 41);
-                background-color: rgba(123, 183, 129, 0.27);
-            }
-
-            .done .board-header {
-                background: rgba(123, 183, 129, 0.07);
-
-            }
             </style>
          
         `
+
+        
 
         headerTemplate.innerHTML += `
             <div class="board-header">
@@ -113,12 +95,16 @@ class BoardHeader extends HTMLElement {
                     <div id="${boardId}-dot" class="dot"></div>
                     ${boardTitle}
                 </div>
-                <button class="add-item" onclick="addTask('teste', '${boardId}-list')">+</button>
+                <add-button list-id="${boardId}-list"></add-button>
             </div>
         `
 
         this.shadowRoot.appendChild(headerTemplate.content.cloneNode(true))
+        
     }
+
+
+
 }
 
 customElements.define('board-header', BoardHeader)
