@@ -7,9 +7,9 @@
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="./src/reset.css">
     <link rel="stylesheet" href="./src/style.css">
-    
+
     <script src="./sw.js" defer></script>
-     <script src="./src/js/index.js" defer></script>
+    <script src="./src/js/index.js" defer></script>
     <script src="./src/js/components/TaskItem.js" defer></script>
     <script src="./src/js/components/TaskList.js" defer></script>
     <script src="./src/js/components/BoardHeader.js" defer></script>
@@ -26,21 +26,21 @@
         <section class="board not-started">
             <board-header id="not-started" title="Não iniciado"></board-header>
             <task-list id="not-started-list">
-                <task-item id="task-1" draggable="true">Jogar no tigrinho</task-item>
+                <task-item id="task-1" draggable="true"><span slot="task">Jogar no tigrinho</span></task-item>
             </task-list>
         </section>
 
         <section class="board in-progress">
             <board-header id="in-progress" title="Em progresso"></board-header>
             <task-list id="in-progress-list">
-                <task-item id="task-2" draggable="true">Terminar a graduação</task-item>
+                <task-item id="task-2" draggable="true"><span slot="task">Terminar a graduação</span></task-item>
             </task-list>
         </section>
 
         <section class="board done">
             <board-header id="done" title="Concluído"></board-header>
             <task-list id="done-list">
-                <task-item id="task-3" draggable="true">Estudar programação</task-item>
+                <task-item id="task-3" draggable="true"><span slot="task">Estudar programação</span></task-item>
             </task-list>
         </section>
 

@@ -6,7 +6,7 @@ class AddButton extends HTMLElement {
 
     connectedCallback() {
 
-        const taskContent = 'Nova tarefa. Clique para editar.'
+       
         const listId = this.getAttribute("list-id")
 
         this.addEventListener("click", this.addTask.bind(this))
@@ -49,11 +49,21 @@ class AddButton extends HTMLElement {
 
     addTask() {
         const task = document.createElement('task-item')
+        
         task.id = `task-${++taskIndex}`
         task.draggable = true
-        task.textContent = 'Nova tarefa. Clique para editar.'
+        
+        const taskTitle = document.createElement('span')
+        taskTitle.setAttribute('slot', 'task')
+        taskTitle.innerHTML = 'Nova tarefa. Clique para editar.'
+        
+               
+        
+        task.appendChild(taskTitle)
     
+        
         const list = document.getElementById(this.getAttribute("list-id"))
+        
         
         
         list.appendChild(task)

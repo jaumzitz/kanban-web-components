@@ -39,7 +39,10 @@ class TaskItem extends HTMLElement {
                     `
 
         taskTemplate.innerHTML += `
-                    <li><slot></slot></li>
+                    <li>
+                        <slot name="task"></slot>
+                        <slot name="editInput"></slot>
+                    </li>
                     `
 
         this.shadowRoot.appendChild(taskTemplate.content)
@@ -60,7 +63,9 @@ class TaskItem extends HTMLElement {
     editTask() {
         // Obtém o conteúdo do slot
         const slot = this.shadowRoot.querySelector("slot");
-        const taskContent = slot.assignedNodes().find(node => node.nodeType === Node.TEXT_NODE);
+        console.log(slot)
+                
+        const taskContent = slot.assignedNodes()[0]
 
         if (!taskContent) {
             console.error("Nenhum conteúdo de texto encontrado no slot.");
@@ -69,29 +74,26 @@ class TaskItem extends HTMLElement {
 
         const input = document.createElement("input");
         input.type = "text";
-        input.value = ''//taskContent.textContent.trim();
+        input.value = ''
         input.placeholder = taskContent.textContent.trim()
         input.size = 36
         
-        // Substitui o conteúdo do slot pelo input
+        //Ao finalizar a edição, substitui o input pelo slot novamente
         input.addEventListener("blur", () => {
             
-
-            const newSlot = document.createElement("slot")
-            newSlot.value = input.value
             
-            input.parentNode.appendChild(newSlot)
 
-            /* 
-            const newText = document.createElement("span").innerText = input.value
-
-            newSlot.assign(newText);
-
-            slot.parentNode.replaceChild(taskContent, input); */
+            const newContent = document.createElement("slot")
+            
+            newContent.setAttribute("slot", "task")
+            newContent.innerText = input.value
+            
+            input.parentNode.replaceChild(newContent, input);
+         
         });
 
         
-
+        input.setAttribute("slot", "editInput")
         
         slot.parentNode.replaceChild(input, slot);   
         //slot.parentNode.replaceChild(input, slot);

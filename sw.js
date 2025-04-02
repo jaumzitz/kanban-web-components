@@ -36,9 +36,7 @@ const cacheFiles = [
     "/src/style.css",
     "/src/assets/favicon.png",
     "/sw.js",
-    "/src/js/eventListeners.js",
     "/src/js/index.js",
-    "/src/js/taskHandler.js",
     "/src/js/components/BoardHeader.js",
     "/src/js/components/TaskItem.js",
     "/src/js/components/TaskList.js"
