@@ -4,18 +4,17 @@ class TaskItem extends HTMLElement {
         this.attachShadow({ mode: "open" })
 
         //adicionar os event listeners da task-item nesse construtor
+        
     }
 
     connectedCallback() {
 
+        /*Não executa o restante caso o shadowRoot já tenha conteúdo (corrige o problema de dupliciade ao fazer drag and drop)*/
         if (this.shadowRoot.children.length > 0) {
             return
         }
-        
+
         const taskTemplate = document.createElement('template')
-        
-        console.log(this.shadowRoot)
-        
 
 
         taskTemplate.innerHTML = `
@@ -43,10 +42,10 @@ class TaskItem extends HTMLElement {
         taskTemplate.innerHTML += `
                     <li><slot></slot></li>
                     `
-        
+
 
         this.shadowRoot.appendChild(taskTemplate.content)
-        
+
 
         const listItem = this.shadowRoot.querySelector("task-item");
 
@@ -55,12 +54,8 @@ class TaskItem extends HTMLElement {
     }
 
 
+
     
-    dragstartHandler(event) {
-        event.dataTransfer.dropEffect = "move";
-        console.log(event)
-        event.dataTransfer.setData("id", event.target.closest("task-item").id);
-    }
 }
 
 customElements.define('task-item', TaskItem)
