@@ -61,43 +61,35 @@ class TaskItem extends HTMLElement {
     }
 
     editTask() {
-        // Obtém o conteúdo do slot
-        const slot = this.shadowRoot.querySelector("slot");
-        console.log(slot)
-                
-        const taskContent = slot.assignedNodes()[0]
 
-        if (!taskContent) {
-            console.error("Nenhum conteúdo de texto encontrado no slot.");
-            return;
-        }
-
-        const input = document.createElement("input");
-        input.type = "text";
-        input.value = ''
-        input.placeholder = taskContent.textContent.trim()
-        input.size = 36
+        // Obtém os slots do shadow DOM
+        const taskSlot = this.shadowRoot.querySelector("slot[name='task']")
+        const inputSlot = this.shadowRoot.querySelector("slot[name='editInput']")
         
-        //Ao finalizar a edição, substitui o input pelo slot novamente
-        input.addEventListener("blur", () => {
-            
-            
+        const taskContent = taskSlot.assignedNodes()[0]
+ 
+        //Cria um template para o input
+        const inputTemplate = document.createElement('template')
+        inputTemplate.innerHTML = `
+            <input type="text" value="" placeholder="${taskContent.textContent.trim()}" size="36" slot="editInput">
+        `
 
-            const newContent = document.createElement("slot")
-            
-            newContent.setAttribute("slot", "task")
-            newContent.innerText = input.value
-            
-            input.parentNode.replaceChild(newContent, input);
-         
+        //Remove o slot de texto e adiciona o input
+        taskSlot.assignedNodes()[0].remove()
+        this.appendChild(inputTemplate.content.cloneNode(true))
+
+        const input = this.querySelector("input")
+
+        //Ao clicar fora do input, o slot com o novo texto é adicionado e o input é removido
+        input.addEventListener("blur", () => {
+
+            const newSpanSlot = document.createElement("span")
+            newSpanSlot.setAttribute("slot", "task")
+            newSpanSlot.innerText = input.value.trim() === '' ? taskContent.textContent.trim() : input.value
+
+            this.replaceChild(newSpanSlot, input)
         });
 
-        
-        input.setAttribute("slot", "editInput")
-        
-        slot.parentNode.replaceChild(input, slot);   
-        //slot.parentNode.replaceChild(input, slot);
-        
         input.focus();
     }
 
