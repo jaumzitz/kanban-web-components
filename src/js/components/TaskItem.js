@@ -88,6 +88,10 @@ class TaskItem extends HTMLElement {
             newSpanSlot.innerText = input.value.trim() === '' ? taskContent.textContent.trim() : input.value
 
             this.replaceChild(newSpanSlot, input)
+
+            
+            localStorage.removeItem(taskContent.textContent)
+            localStorage.setItem(newSpanSlot.innerText, 'not-started')
         });
 
         input.focus();

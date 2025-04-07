@@ -57,7 +57,7 @@ class AddButton extends HTMLElement {
         
         const taskTitle = document.createElement('span')
         taskTitle.setAttribute('slot', 'task')
-        taskTitle.innerHTML = 'Nova tarefa. Clique para editar.'
+        taskTitle.innerHTML = 'Nova tarefa (Clique para editar)'
         
         const taskStatus = this.getAttribute("list-id")
                
@@ -67,7 +67,7 @@ class AddButton extends HTMLElement {
         
         const list = document.getElementById(taskStatus)
         
-        localStorage.setItem(taskTitle.innerHTML, taskStatus)
+        //localStorage.setItem(taskTitle.innerHTML, taskStatus.replace('-list', ''))
         
         list.appendChild(task)
     }

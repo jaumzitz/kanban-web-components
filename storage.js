@@ -8,8 +8,10 @@ window.addEventListener('storage', (event) => {
 
 
 window.addEventListener('load', () => {
-    localStorage.setItem('Veio do Local Storage', 'done')
-    localStorage.setItem('Mais uma do storage', 'done')
+    
+    localStorage.setItem('Jogar no tigrinho', 'not-started')
+    localStorage.setItem('Terminar a graduação', 'in-progress')
+    localStorage.setItem('Estudar programação', 'done')
      
 
     for (let i = 0; i < localStorage.length; i++) {
@@ -33,6 +35,7 @@ const loadTasks = (name, status) => {
     task.appendChild(taskTitle)
 
     const list = document.getElementById(`${status}-list`)
+    
     list.appendChild(task)
 }
 

@@ -36,6 +36,7 @@ const cacheFiles = [
     "/src/style.css",
     "/src/assets/favicon.png",
     "/sw.js",
+    "/storage.js",
     "/src/js/index.js",
     "/src/js/components/BoardHeader.js",
     "/src/js/components/TaskItem.js",
@@ -48,7 +49,7 @@ self.addEventListener("install", (evento) => {
         addToCache(cacheFiles)
 
     )
-    console.log(`[Service Worker] Armazenando recursos em cache: ${cacheName}`)
+    //console.log(`[Service Worker] Armazenando recursos em cache: ${cacheName}`)
 })
 
 
@@ -63,7 +64,7 @@ self.addEventListener("fetch", (e) => {
 
             //Se o recurso estiver no cache, retorna ele
             if (resource) {
-                console.log(`[Service Worker] Recurso disponível no cache: ${e.request.url}`);
+                //console.log(`[Service Worker] Recurso disponível no cache: ${e.request.url}`);
                 return resource;
             }
 

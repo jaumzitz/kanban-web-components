@@ -35,7 +35,7 @@ class TaskList extends HTMLElement {
 
         this.shadowRoot.appendChild(listTemplate.content.cloneNode(true))
 
-        
+
 
     }
 
@@ -54,16 +54,28 @@ class TaskList extends HTMLElement {
 
         const data = event.dataTransfer.getData("id")
 
-
+        const taskElement = document.getElementById(data)
+        const taskTitle = taskElement.children[0].textContent
+        const taskStatus = this.getAttribute('id').replace('-list', '')
 
         // Verifica se o elemento alvo é um task-item ou task-list
         if (event.target.tagName === "TASK-ITEM") {
 
+
+
             event.target.parentNode.appendChild(document.getElementById(data), event.target.nextSibling)
+
+            localStorage.setItem(taskTitle, taskStatus)
+
             return
         }
         if (event.target.tagName === "TASK-LIST") {
+
+
             event.target.appendChild(document.getElementById(data))
+
+            localStorage.setItem(taskTitle, taskStatus)
+
             return
         }
 
