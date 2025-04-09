@@ -79,7 +79,9 @@ class TaskItem extends HTMLElement {
         this.appendChild(inputTemplate.content.cloneNode(true))
 
         const input = this.querySelector("input")
+        const status = this.parentNode.id.replace('-list', '')
 
+        
         //Ao clicar fora do input, o slot com o novo texto é adicionado e o input é removido
         input.addEventListener("blur", () => {
 
@@ -88,10 +90,11 @@ class TaskItem extends HTMLElement {
             newSpanSlot.innerText = input.value.trim() === '' ? taskContent.textContent.trim() : input.value
 
             this.replaceChild(newSpanSlot, input)
+            console.log(status)
 
             
             localStorage.removeItem(taskContent.textContent)
-            localStorage.setItem(newSpanSlot.innerText, 'not-started')
+            localStorage.setItem(newSpanSlot.innerText, status)
         });
 
         input.focus();
